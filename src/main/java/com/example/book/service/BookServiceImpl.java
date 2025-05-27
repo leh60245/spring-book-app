@@ -31,25 +31,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book updateBook(Long id, Book book) {
-        // 책을 가져온다.
-        Book b = findBook(id);
-        // 책의 내용을 변경한다.
-        b.setTitle(book.getTitle());
-        b.setSubTitle(book.getSubTitle());
-        b.setAuthor(book.getAuthor());
-        b.setPublisher(book.getPublisher());
-        b.setStatus(book.getStatus());
-        // 변경된 책을 저장한다.
-        return bookRepository.save(b);
-    }
-
-
-    @Override
-    public Book updateBook(Long id, Book.Status status) {
-        Book b = findBook(id);
-        b.setStatus(status);
-        return bookRepository.save(b);
+    public Book updateBook(Book book) {
+        return bookRepository.save(book);
     }
 
     @Override

@@ -46,7 +46,20 @@ public class BookDTO {
     public static class Response {
         private Long id;
         private String title;
+        private String subTitle;
         private String author;
         private String publisher;
+        private Book.Status status;
+
+        public static Response from(Book book) {
+            return new Response(
+                    book.getId(),
+                    book.getTitle(),
+                    book.getSubTitle(),
+                    book.getAuthor(),
+                    book.getPublisher(),
+                    book.getStatus()
+            );
+        }
     }
 }
